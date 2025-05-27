@@ -1,18 +1,17 @@
-## Mind Care
+## Bayar Pajakku
 
-**Mind Care** adalah aplikasi yang dirancang untuk melakukan pengecekan kesehatan mental secara online. Aplikasi ini menyediakan sebuah platform bagi pengguna untuk memeriksa kondisi mental mereka melalui serangkaian kuesioner atau penilaian yang sederhana namun efektif. Dengan tujuan untuk membantu meningkatkan kesadaran tentang pentingnya kesehatan mental, aplikasi ini memungkinkan pengguna untuk mendapatkan gambaran awal mengenai kesejahteraan psikologis mereka.
+**Bayar Pajakku** adalah aplikasi yang dirancang untuk............
 
 ## Struktur dan Fungsi File
 
 - **src/css/**: Folder ini berisi file-file CSS yang digunakan untuk styling halaman.
-- **src/data/**: Berisi file `.yml` untuk menyimpan soal-soal atau data terkait.
 - **src/font/**: Menyimpan file font yang digunakan dalam tampilan aplikasi.
 - **src/img/**: Folder untuk gambar-gambar yang digunakan dalam aplikasi.
 - **src/views/**: Folder untuk file tampilan yang menggunakan EJS untuk rendering halaman.
 - **server.js**: Merupakan file utama yang menjalankan aplikasi server menggunakan Express.
 
 ## Cara Menjalankan Website
-Berikut adalah langkah-langkah untuk menjalankan aplikasi **Mind Care** di komputer Anda:
+Berikut adalah langkah-langkah untuk menjalankan aplikasi **Bayar Pajakku** di komputer Anda:
 
 ### Langkah 1: Buka Terminal
 - **Windows**: Buka **Command Prompt** atau **PowerShell**.
