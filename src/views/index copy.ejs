@@ -1,63 +1,298 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Bayar Pajakku: Solusi cepat dan akurat untuk menghitung pajak PPh Pasal 21. Dapatkan panduan perpajakan lengkap.">
+  <meta name="keywords" content="kalkulator pajak, PPh 21, perpajakan Indonesia, hitung pajak">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/heroicons@1.0.6/umd/heroicons.min.js"></script>
-  <title>Mind Care</title>
+  <title>Bayar Pajakku</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
+      background-color: #fffcf2;
     }
 
-    .mindcare-font {
+    .bayarpajakku-font {
       font-family: "Lobster", sans-serif;
       font-weight: 400;
       font-style: normal;
     }
+
+    .animate-slide-in {
+      animation: slideIn 0.5s ease-out;
+    }
+
+    .animate-scale-in {
+      animation: scaleIn 0.7s ease-out;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .bg-pattern {
+      background-image: linear-gradient(45deg, rgba(96, 53, 29, 0.1) 25%, transparent 25%, transparent 50%, rgba(96, 53, 29, 0.1) 50%, rgba(96, 53, 29, 0.1) 75%, transparent 75%, transparent);
+      background-size: 20px 20px;
+    }
   </style>
 </head>
 
-<body class="bg-gray-100 font-sans">
-
-  <!-- Halaman Utama -->
+<body class="font-sans">
   <div class="flex flex-col min-h-screen">
-    <!-- Bagian Menu Elemen -->
-    <div class="absolute top-28 md:top-16 w-full flex flex-col items-center space-y-5 py-5 pb-36 px-5 z-10">
-      <img src="img/logo.png" alt="Logo Mind Care" class="w-24 h-24 rounded-full">
-      <h1 class="text-3xl font-semibold text-[#005D69] sm:text-white mb-10 mindcare-font">Mind Care</h1>
+    <!-- Sticky Header -->
+    <header class="bg-[#5a3219] text-white shadow-lg sticky top-0 z-20">
+      <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+        <!-- Logo + Brand -->
+        <div class="flex items-center space-x-3">
+          <span class="text-2xl font-semibold select-none bayarpajakku-font animate-scale-in">Bayar Pajakku</span>
+        </div>
+        <!-- Navigation -->
+        <nav class="hidden md:flex font-medium text-lg">
+          <ul class="flex space-x-6">
+            <li>
+              <a href="/"
+                class="flex items-center space-x-2 px-4 py-2 rounded-md hover:bg-[#7f5539] transition duration-300">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="/kalkulator"
+                class="flex items-center space-x-2 px-4 py-2 rounded-md hover:bg-[#7f5539] transition duration-300">
+                <i class="fas fa-calculator"></i>
+                <span>Kalkulator</span>
+              </a>
+            </li>
+            <li>
+              <a href="/info"
+                class="flex items-center space-x-2 px-4 py-2 rounded-md hover:bg-[#7f5539] transition duration-300">
+                <i class="fas fa-info-circle"></i>
+                <span>Info</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-      <a href="/kuesioner"
-        class="w-full max-w-md h-28 bg-gradient-to-r from-[#182233] to-[#005D69] text-white flex items-center justify-start rounded-3xl shadow-2xl px-5 md:px-9 cursor-pointer">
-        <div class="flex items-center space-x-4">
-          <img src="img/icon.png" alt="Icon Kuesioner" class="w-22 h-22">
-          <span class="text-md md:text-lg font-semibold">Cek Tingkat Stres Kamu Sekarang</span>
+    <!-- Main Content -->
+    <main class="flex-grow pb-16 md:pb-0">
+      <!-- Hero Section -->
+      <section class="bg-[#FAF6EC] text-[#3a1f0a] py-20">
+        <div class="container mx-auto px-4 text-center max-w-6xl">
+          <div
+            class="inline-flex items-center space-x-2 bg-[#e4d3c0] text-[#3a1f0a] rounded-full px-4 py-2 text-sm mb-6 select-none">
+            <i class="fas fa-check-circle"></i>
+            <span>Kalkulator Pajak Terpercaya</span>
+          </div>
+          <h1 class="text-4xl sm:text-6xl font-bold leading-tight mb-4 animate-slide-in">
+            Hitung Pajak Anda dengan <br />Mudah dan Akurat
+          </h1>
+          <p class="text-[#5a3219] max-w-2xl mx-auto mb-10 text-base sm:text-lg animate-slide-in">
+            Bayar Pajakku membantu Anda menghitung berbagai jenis pajak dengan cepat dan tepat. Dapatkan estimasi pajak
+            yang harus dibayar tanpa ribet.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-md mx-auto animate-slide-in">
+            <a href="/kalkulator"
+              class="bg-[#5a3219] text-white font-semibold rounded-md px-6 py-3 flex items-center justify-center gap-2 hover:bg-[#7f5539] transition min-w-[280px]">
+              <i class="fas fa-calculator"></i>
+              <span>Mulai Hitung Pajak</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="/info"
+              class="bg-white border border-[#d9d6d1] text-[#5a3219] font-semibold rounded-md px-6 py-3 hover:bg-[#f3f1ec] transition flex items-center justify-center min-w-[280px]">
+              Pelajari Cara Penggunaan
+            </a>
+          </div>
         </div>
-      </a>
-      <a href="/materi"
-        class="w-full max-w-md h-28 bg-gradient-to-r from-[#182233] to-[#005D69] text-white flex items-center justify-start rounded-3xl shadow-2xl px-5 md:px-9 cursor-pointer">
-        <div class="flex items-center space-x-4">
-          <img src="img/icon3.png" alt="Icon Kuesioner" class="w-22 h-22">
-          <span class="text-md md:text-lg font-semibold">Kenali Macam-Macam Gangguan Kesehatan Mental</span>
-        </div>
-      </a>
-      <a href="/tips"
-        class="w-full max-w-md h-28 bg-gradient-to-r from-[#182233] to-[#005D69] text-white flex items-center justify-start rounded-3xl shadow-2xl px-5 md:px-9 cursor-pointer">
-        <div class="flex items-center space-x-4">
-          <img src="img/icon2.png" alt="Icon Kuesioner" class="w-22 h-22">
-          <span class="text-md md:text-lg font-semibold">Tips untuk menjaga kesehatan mental</span>
-        </div>
-      </a>
-    </div>
+      </section>
 
-    <!-- Bottom Navigation -->
-    <div class="bg-white p-4 shadow-lg mt-auto fixed bottom-0 w-full z-10">
+      <!-- Why Choose Us Section -->
+      <section class="container bg-white max-w-full py-20">
+        <h2 class="text-2xl md:text-3xl font-semibold text-[#60351d] text-center mb-8">Mengapa Pilih Bayar Pajakku?</h2>
+        <p class="text-center text-[#704a32] mb-10 max-w-xl mx-auto">
+          Kami menyediakan solusi perhitungan pajak yang mudah, cepat, dan dapat diandalkan
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div
+            class="bg-[#fffcf2] p-6 rounded-2xl shadow-lg text-center transform hover:scale-105 transition animate-slide-in">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#60351d"
+              class="w-10 h-10 mx-auto mb-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Perhitungan Akurat</h3>
+            <p class="text-sm text-gray-600">Kalkulator kami memastikan hasil pajak yang tepat sesuai peraturan terkini.
+            </p>
+          </div>
+          <div
+            class="bg-[#fffcf2] p-6 rounded-2xl shadow-lg text-center transform hover:scale-105 transition animate-slide-in">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#60351d"
+              class="w-10 h-10 mx-auto mb-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+            </svg>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Mudah Digunakan</h3>
+            <p class="text-sm text-gray-600">Antarmuka sederhana untuk menghitung pajak dengan cepat tanpa ribet.</p>
+          </div>
+          <div
+            class="bg-[#fffcf2] p-6 rounded-2xl shadow-lg text-center transform hover:scale-105 transition animate-slide-in">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#60351d"
+              class="w-10 h-10 mx-auto mb-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 006 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            <h3 class="text-lg font-semibold text-gray-800 mb-2">Panduan Lengkap</h3>
+            <p class="text-sm text-gray-600">Informasi perpajakan yang jelas untuk memahami kewajiban pajak Anda.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section -->
+      <section class="bg-gradient-to-r from-[#d3c6bc] to-[#fffcf2] py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#60351d] text-center mb-12">Apa Kata Pengguna Kami</h2>
+          <div class="flex flex-col md:flex-row gap-6 max-w-5xl mx-auto items-center">
+            <div
+              class="bg-white p-6 rounded-2xl shadow-lg w-full md:w-1/3 opacity-75 transform scale-95 transition-all animate-fade-in">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="#60351d" class="w-8 h-8 mx-auto mb-4">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+              </svg>
+              <p class="text-sm text-gray-600 italic mb-4">"Bayar Pajakku membuat perhitungan pajak jadi super mudah dan
+                cepat!"</p>
+              <p class="text-sm font-semibold text-gray-800">Budi, Karyawan Swasta</p>
+            </div>
+            <div
+              class="bg-white p-8 rounded-2xl shadow-2xl w-full md:w-1/3 transform scale-100 z-10 transition-all animate-scale-in">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="#60351d" class="w-10 h-10 mx-auto mb-4">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+              </svg>
+              <p class="text-base text-gray-600 italic mb-4">"Panduan perpajakannya sangat membantu untuk pemula seperti
+                saya."</p>
+              <p class="text-base font-semibold text-gray-800">Siti, Freelancer</p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-2xl shadow-lg w-full md:w-1/3 opacity-75 transform scale-95 transition-all animate-fade-in">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="#60351d" class="w-8 h-8 mx-auto mb-4">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+              </svg>
+              <p class="text-sm text-gray-600 italic mb-4">"Saya bisa menghitung pajak kapan saja dengan antarmuka yang
+                ramah."</p>
+              <p class="text-sm font-semibold text-gray-800">Andi, Pengusaha</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Statistics Section -->
+      <section class="bg-pattern py-16 relative">
+        <div class="absolute inset-0 bg-[#fffcf2] opacity-80 z-0"></div>
+        <div class="container mx-auto px-4 relative z-10">
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#60351d] text-center mb-12">Kami Dipercaya dan Terbukti
+          </h2>
+          <div class="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto text-center">
+            <div class="flex-1 p-6 animate-fade-in">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="#60351d" class="w-12 h-12 mx-auto mb-4">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+              </svg>
+              <h3 class="text-4xl md:text-5xl font-bold text-[#60351d] mb-2">10,000+</h3>
+              <p class="text-base text-gray-600">Pengguna Aktif</p>
+            </div>
+            <div class="flex-1 p-6 animate-fade-in md:delay-100">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="#60351d" class="w-12 h-12 mx-auto mb-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+              <h3 class="text-4xl md:text-5xl font-bold text-[#60351d] mb-2">99.9%</h3>
+              <p class="text-base text-gray-600">Akurasi Perhitungan</p>
+            </div>
+            <div class="flex-1 p-6 animate-fade-in md:delay-200">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="#60351d" class="w-12 h-12 mx-auto mb-4">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <h3 class="text-4xl md:text-5xl font-bold text-[#60351d] mb-2">24/7</h3>
+              <p class="text-base text-gray-600">Tersedia Online</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="bg-gradient-to-r from-[#60351d] to-[#704a32] text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-2xl md:text-3xl font-semibold mb-4 animate-slide-in">Siap Menghitung Pajak Anda?</h2>
+          <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 animate-slide-in">
+            Gunakan kalkulator kami sekarang dan dapatkan estimasi pajak yang akurat
+          </p>
+          <a href="/kalkulator"
+            class="bg-[#9c8070] text-white px-6 py-3 rounded-lg text-lg font-medium hover:bg-[#d3c6bc] hover:text-[#60351d] transition animate-slide-in">Mulai
+            Sekarang</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (Hidden on Mobile, Visible on Tablet and Desktop) -->
+    <footer class="bg-gradient-to-r from-[#60351d] to-[#704a32] text-white py-6 hidden md:block">
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-sm">© 2025 Bayar Pajakku. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bottom Navigation (Mobile Only) -->
+    <div class="bg-white p-4 shadow-lg fixed bottom-0 w-full z-10 md:hidden">
       <div class="flex justify-around">
-        <a href="/" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#005D69]">
+        <a href="/" class="text-[#60351d] flex flex-col items-center focus:outline-none">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -65,7 +300,7 @@
           </svg>
           <span class="text-sm">Home</span>
         </a>
-        <a href="/kalkulator" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#005D69]">
+        <a href="/kalkulator" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#60351d]">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -73,19 +308,17 @@
           </svg>
           <span class="text-sm">Kalkulator</span>
         </a>
-        <a href="/kontak" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#005D69]">
+        <a href="/info" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#60351d]">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
-              d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+              d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
           </svg>
-          <span class="text-sm">Contact</span>
+          <span class="text-sm">Info</span>
         </a>
       </div>
     </div>
-
   </div>
-
 </body>
 
 </html>
