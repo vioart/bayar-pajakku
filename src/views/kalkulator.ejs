@@ -12,6 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/heroicons@1.0.6/umd/heroicons.min.js"></script>
+  <link rel="icon" href="img/icon.png" type="image/png">
   <title>Bayar Pajakku</title>
   <style>
     body {
@@ -22,6 +23,52 @@
       font-family: "Lobster", sans-serif;
       font-weight: 400;
       font-style: normal;
+    }
+
+        .animate-slide-in {
+      animation: slideIn 0.5s ease-out;
+    }
+
+    .animate-scale-in {
+      animation: scaleIn 0.7s ease-out;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
     }
 
     /* Custom style untuk input */
@@ -44,11 +91,11 @@
       <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         <!-- Logo + Brand -->
         <div class="flex items-center space-x-3">
-          <span class="text-2xl font-semibold select-none bayarpajakku-font animate-scale-in">Bayar Pajakku</span>
+          <img src="img/logo.png" alt="Logo" width="150" height="50" class="object-contain animate-scale-in">
         </div>
         <!-- Navigation -->
         <nav class="hidden md:flex font-medium text-lg">
-          <ul class="flex space-x-6">
+          <ul class="flex space-x-6 animate-scale-in">
             <li>
               <a href="/"
                 class="flex items-center space-x-2 px-4 py-2 rounded-md hover:bg-[#7f5539] transition duration-300">
@@ -361,7 +408,7 @@
     <!-- Bottom Navigation -->
     <div class="bg-white p-4 shadow-lg fixed bottom-0 w-full z-10 md:hidden">
       <div class="flex justify-around">
-        <a href="/" class="text-[#005D69] flex flex-col items-center focus:outline-none">
+        <a href="/" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#60351d]">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
@@ -369,15 +416,15 @@
           </svg>
           <span class="text-sm">Home</span>
         </a>
-        <a href="/kalkulator" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#005D69]">
+        <a href="/kalkulator" class="text-[#60351d] flex flex-col items-center focus:outline-none">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
-              d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25v-.008zm2.25-4.5h.008v.008H10.5v-.008zm0 2.25h.008v.008H10.5v-.008zm0 2.25h.008v.008H10.5v-.008zm2.25-4.5h.008v.008H12.75v-.008zm0 2.25h.008v.008H12.75v-.008zm0 2.25h.008v.008H12.75v-.008zm2.25-4.5h.008v.008H15v-.008zm0 2.25h.008v.008H15v-.008zm0 2.25h.008v.008H15v-.008zM4.5 4.5h15A2.25 2.25 0 0121.75 6.75v10.5A2.25 2.25 0 0119.5 19.5h-15A2.25 2.25 0 012.25 17.25V6.75A2.25 2.25 0 014.5 4.5z" />
+              d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V13.5Zm0 2.25h.008v.008H8.25v-.008Zm0 2.25h.008v.008H8.25V18Zm2.498-6.75h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V13.5Zm0 2.25h.007v.008h-.007v-.008Zm0 2.25h.007v.008h-.007V18Zm2.504-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V18Zm2.498-6.75h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V13.5ZM8.25 6h7.5v2.25h-7.5V6ZM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 0 0 2.25 2.25h10.5a2.25 2.25 0 0 0 2.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0 0 12 2.25Z" />
           </svg>
           <span class="text-sm">Kalkulator</span>
         </a>
-        <a href="/info" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#005D69]">
+        <a href="/info" class="text-gray-700 flex flex-col items-center focus:outline-none hover:text-[#60351d]">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
             stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round"
