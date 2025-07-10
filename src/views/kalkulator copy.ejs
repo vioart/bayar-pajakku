@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/heroicons@1.0.6/umd/heroicons.min.js"></script>
   <link rel="icon" href="img/icon.png" type="image/png">
-  <title>Teach - Kalkulator Ter</title>
+  <title>Teach</title>
   <style>
     body {
       font-family: "Poppins", sans-serif;
@@ -139,6 +139,7 @@
                   class="block w-full h-10 px-3 rounded-lg border-gray-300 shadow-sm focus:border-[#5a3219] focus:ring-2 focus:ring-[#5a3219] text-sm">
                   <option value="TK">TK (Tidak Kawin)</option>
                   <option value="K">K (Kawin)</option>
+                  <option value="HB">HB (Hidup Berpisah)</option>
                 </select>
               </div>
 
@@ -152,6 +153,45 @@
                   <option value="2">2</option>
                   <option value="3">3</option>
                 </select>
+              </div>
+
+              <!-- Masa Penghasilan -->
+              <div>
+                <label for="masa-penghasilan" class="block text-sm font-medium text-gray-700 mb-1">Masa
+                  Penghasilan</label>
+                <div class="grid grid-cols-2 gap-4">
+                  <div>
+                    <select id="masaDari" name="masaDari"
+                      class="block w-full h-10 px-3 rounded-lg border-gray-300 shadow-sm focus:border-[#5a3219] focus:ring-2 focus:ring-[#5a3219] text-sm">
+                      <option value="Januari">Januari</option>
+                      <option value="Februari">Februari</option>
+                      <option value="Maret">Maret</option>
+                      <option value="April">April</option>
+                      <option value="Mei">Mei</option>
+                      <option value="Juni">Juni</option>
+                      <option value="Juli">Juli</option>
+                      <option value="Agustus">Agustus</option>
+                      <option value="September">September</option>
+                      <option value="Oktober">Oktober</option>
+                      <option value="November">November</option>
+                      <option value="Desember">Desember</option>
+                    </select>
+                  </div>
+                  <div>
+                    <select id="masaSampai" name="masaSampai" disabled
+                      class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed">
+                      <option value="Desember">Desember</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ketentuan PTKP -->
+              <div>
+                <label for="ketentuan-ptkp" class="block text-sm font-medium text-gray-700 mb-1">Ketentuan PTKP</label>
+                <input type="text" id="ketentuan-ptkp" name="ketentuan-ptkp" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  value="Berdasarkan Status" />
               </div>
             </div>
           </div>
@@ -218,28 +258,121 @@
             </div>
           </div>
 
+          <!-- Pengurangan -->
+          <div class="border border-gray-200 rounded-lg p-4 sm:p-6 space-y-4">
+            <h2 class="text-lg font-semibold text-[#5a3219]">B. Pengurangan</h2>
+            <div class="grid grid-cols-1 gap-4">
+              <div>
+                <label for="biayaJabatan" class="block text-sm font-medium text-gray-700 mb-1">Biaya Jabatan</label>
+                <input type="number" id="biayaJabatan" name="biayaJabatan" 
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 shadow-sm text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" disabled />
+              </div>
+              <div>
+                <label for="iuran-pensiun" class="block text-sm font-medium text-gray-700 mb-1">Iuran Pensiun atau
+                  THT/JHT</label>
+                <input type="number" id="iuran-pensiun" name="iuran-pensiun" min="0" step="1"
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 shadow-sm focus:border-[#5a3219] focus:ring-2 focus:ring-[#5a3219] text-sm"
+                  placeholder="Masukkan jumlah" />
+              </div>
+            </div>
+          </div>
+
           <!-- Penghitung PPh Pasal 21 -->
           <div class="border border-gray-200 rounded-lg p-4 sm:p-6 space-y-4">
             <h2 class="text-lg font-semibold text-[#5a3219]">
-              B. Penghitung PPh Pasal 21
+              C. Penghitung PPh Pasal 21
             </h2>
             <div class="grid grid-cols-1 gap-4">
-             <div>
-                <label for="tarif-ter-bulanan" class="block text-sm font-medium text-gray-700 mb-1">Tarif Efektif Rata-rata (TER) Bulanan</label>
-                <input type="text" id="tarif-ter-bulanan" name="tarif-ter-bulanan" disabled
+              <div>
+                <label for="penghasilan-bruto-setahun" class="block text-sm font-medium text-gray-700 mb-1">Penghasilan
+                  Bruto Setahun</label>
+                <input type="number" id="penghasilan-bruto-setahun" name="penghasilan-bruto-setahun" disabled
                   class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
                   placeholder="Otomatis dihitung" />
               </div>
               <div>
-                <label for="kategori-ter" class="block text-sm font-medium text-gray-700 mb-1">Kategori TER</label>
-                <input type="text" id="kategori-ter" name="kategori-ter" disabled
+                <label for="biaya-jabatan-setahun" class="block text-sm font-medium text-gray-700 mb-1">Biaya Jabatan
+                  Setahun</label>
+                <input type="number" id="biaya-jabatan-setahun" name="biaya-jabatan-setahun" disabled
                   class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
                   placeholder="Otomatis dihitung" />
               </div>
               <div>
-                <label for="pph-terutang-bulanan" class="block text-sm font-medium text-gray-700 mb-1">PPh Pasal 21
-                  Terutang Bulan Ini</label>
-                <input type="number" id="pph-terutang-bulanan" name="pph-terutang-bulanan" disabled
+                <label for="iuran-pensiun-setahun" class="block text-sm font-medium text-gray-700 mb-1">Iuran Pensiun
+                  Setahun</label>
+                <input type="number" id="iuran-pensiun-setahun" name="iuran-pensiun-setahun" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="jumlah-pengurang" class="block text-sm font-medium text-gray-700 mb-1">Jumlah
+                  Pengurang</label>
+                <input type="number" id="jumlah-pengurang" name="jumlah-pengurang" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="penghasilan-neto" class="block text-sm font-medium text-gray-700 mb-1">Penghasilan
+                  Neto</label>
+                <input type="number" id="penghasilan-neto" name="penghasilan-neto" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="penghasilan-neto-sebelumnya"
+                  class="block text-sm font-medium text-gray-700 mb-1">Penghasilan
+                  Neto Masa Sebelumnya</label>
+                <input type="number" id="penghasilan-neto-sebelumnya" name="penghasilan-neto-sebelumnya" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="penghasilan-neto-setahun" class="block text-sm font-medium text-gray-700 mb-1">Penghasilan
+                  Neto Setahun/Disetahunkan</label>
+                <input type="number" id="penghasilan-neto-setahun" name="penghasilan-neto-setahun" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="ptkp" class="block text-sm font-medium text-gray-700 mb-1">Penghasilan Tidak Kena
+                  Pajak</label>
+                <input type="number" id="ptkp" name="ptkp" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="pkp-setahun" class="block text-sm font-medium text-gray-700 mb-1">PKP
+                  Setahun/Disetahunkan</label>
+                <input type="number" id="pkp-setahun" name="pkp-setahun" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="pph-atas-pkp" class="block text-sm font-medium text-gray-700 mb-1">PPh Pasal 21 atas
+                  PKP</label>
+                <input type="number" id="pph-atas-pkp" name="pph-atas-pkp" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="pph-dipotong-sebelumnya" class="block text-sm font-medium text-gray-700 mb-1">PPh Pasal 21
+                  Dipotong Masa Sebelumnya</label>
+                <input type="number" id="pph-dipotong-sebelumnya" name="pph-dipotong-sebelumnya" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="pph-terutang-setahun" class="block text-sm font-medium text-gray-700 mb-1">PPh Pasal 21
+                  Terutang Setahun/Disetahunkan</label>
+                <input type="number" id="pph-terutang-setahun" name="pph-terutang-setahun" disabled
+                  class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
+                  placeholder="Otomatis dihitung" />
+              </div>
+              <div>
+                <label for="pph-terutang-sebulan" class="block text-sm font-medium text-gray-700 mb-1">PPh Pasal 21
+                  Terutang Sebulan</label>
+                <input type="number" id="pph-terutang-sebulan" name="pph-terutang-sebulan" disabled
                   class="block w-full h-10 px-3 rounded-lg border-gray-300 bg-gray-100 text-gray-500 text-sm cursor-not-allowed"
                   placeholder="Otomatis dihitung" />
               </div>
@@ -273,166 +406,33 @@
         const premiAsuransi = parseFloat(document.getElementById('premi-asuransi').value) || 0;
         const natura = parseFloat(document.getElementById('natura').value) || 0;
         const bonus = parseFloat(document.getElementById('bonus').value) || 0;
-        const statusKawin = document.getElementById('status-kawin').value;
-        const tanggungan = parseInt(document.getElementById('tanggungan').value);
 
         // Hitung Penghasilan Bruto
         const penghasilanBruto = gaji + tunjanganPph + tunjanganLain + honorarium + premiAsuransi + natura + bonus;
         document.getElementById('penghasilanBruto').value = penghasilanBruto.toFixed(0);
 
-        // Tentukan Kategori TER
-        let kategoriTer = '';
-        if ((statusKawin === 'TK' && tanggungan === 0) ||
-          (statusKawin === 'TK' && tanggungan === 1) ||
-          (statusKawin === 'K' && tanggungan === 0)) {
-          kategoriTer = 'A';
-        } else if ((statusKawin === 'TK' && tanggungan === 2) ||
-          (statusKawin === 'TK' && tanggungan === 3) ||
-          (statusKawin === 'K' && tanggungan === 1) ||
-          (statusKawin === 'K' && tanggungan === 2)) {
-          kategoriTer = 'B';
-        } else if (statusKawin === 'K' && tanggungan === 3) {
-          kategoriTer = 'C';
-        }
-        document.getElementById('kategori-ter').value = kategoriTer;
+        // Ambil periode dari
+        const masaDari = document.getElementById('masaDari').value;
+        const months = [
+          'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+          'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
+        ];
+        const startMonthIndex = months.indexOf(masaDari);
+        const endMonthIndex = months.indexOf('Desember');
+        const bulanPeriode = endMonthIndex - startMonthIndex + 1;
 
-        // Tentukan Tarif TER Bulanan
-        let tarifTer = 0;
-        if (kategoriTer === 'A') {
-          if (penghasilanBruto <= 5400000) tarifTer = 0;
-          else if (penghasilanBruto <= 5650000) tarifTer = 0.25;
-          else if (penghasilanBruto <= 5950000) tarifTer = 0.5;
-          else if (penghasilanBruto <= 6300000) tarifTer = 0.75;
-          else if (penghasilanBruto <= 6750000) tarifTer = 1;
-          else if (penghasilanBruto <= 7500000) tarifTer = 1.25;
-          else if (penghasilanBruto <= 8550000) tarifTer = 1.5;
-          else if (penghasilanBruto <= 9650000) tarifTer = 1.75;
-          else if (penghasilanBruto <= 10050000) tarifTer = 2;
-          else if (penghasilanBruto <= 10350000) tarifTer = 2.25;
-          else if (penghasilanBruto <= 10700000) tarifTer = 2.5;
-          else if (penghasilanBruto <= 11050000) tarifTer = 3;
-          else if (penghasilanBruto <= 11600000) tarifTer = 3.5;
-          else if (penghasilanBruto <= 12500000) tarifTer = 4;
-          else if (penghasilanBruto <= 13750000) tarifTer = 5;
-          else if (penghasilanBruto <= 15100000) tarifTer = 6;
-          else if (penghasilanBruto <= 16950000) tarifTer = 7;
-          else if (penghasilanBruto <= 19750000) tarifTer = 8;
-          else if (penghasilanBruto <= 24150000) tarifTer = 9;
-          else if (penghasilanBruto <= 26450000) tarifTer = 10;
-          else if (penghasilanBruto <= 28000000) tarifTer = 11;
-          else if (penghasilanBruto <= 30050000) tarifTer = 12;
-          else if (penghasilanBruto <= 32400000) tarifTer = 13;
-          else if (penghasilanBruto <= 35400000) tarifTer = 14;
-          else if (penghasilanBruto <= 39100000) tarifTer = 15;
-          else if (penghasilanBruto <= 43850000) tarifTer = 16;
-          else if (penghasilanBruto <= 47800000) tarifTer = 17;
-          else if (penghasilanBruto <= 51400000) tarifTer = 18;
-          else if (penghasilanBruto <= 56300000) tarifTer = 19;
-          else if (penghasilanBruto <= 62200000) tarifTer = 20;
-          else if (penghasilanBruto <= 68600000) tarifTer = 21;
-          else if (penghasilanBruto <= 77500000) tarifTer = 22;
-          else if (penghasilanBruto <= 89000000) tarifTer = 23;
-          else if (penghasilanBruto <= 103000000) tarifTer = 24;
-          else if (penghasilanBruto <= 125000000) tarifTer = 25;
-          else if (penghasilanBruto <= 157000000) tarifTer = 26;
-          else if (penghasilanBruto <= 206000000) tarifTer = 27;
-          else if (penghasilanBruto <= 337000000) tarifTer = 28;
-          else if (penghasilanBruto <= 454000000) tarifTer = 29;
-          else if (penghasilanBruto <= 550000000) tarifTer = 30;
-          else if (penghasilanBruto <= 695000000) tarifTer = 31;
-          else if (penghasilanBruto <= 910000000) tarifTer = 32;
-          else if (penghasilanBruto <= 1400000000) tarifTer = 33;
-          else tarifTer = 34;
-        } else if (kategoriTer === 'B') {
-          if (penghasilanBruto <= 6200000) tarifTer = 0;
-          else if (penghasilanBruto <= 6500000) tarifTer = 0.25;
-          else if (penghasilanBruto <= 6850000) tarifTer = 0.5;
-          else if (penghasilanBruto <= 7300000) tarifTer = 0.75;
-          else if (penghasilanBruto <= 9200000) tarifTer = 1;
-          else if (penghasilanBruto <= 10750000) tarifTer = 1.5;
-          else if (penghasilanBruto <= 11250000) tarifTer = 2;
-          else if (penghasilanBruto <= 11600000) tarifTer = 2.5;
-          else if (penghasilanBruto <= 12600000) tarifTer = 3;
-          else if (penghasilanBruto <= 13600000) tarifTer = 4;
-          else if (penghasilanBruto <= 14950000) tarifTer = 5;
-          else if (penghasilanBruto <= 16400000) tarifTer = 6;
-          else if (penghasilanBruto <= 18450000) tarifTer = 7;
-          else if (penghasilanBruto <= 21850000) tarifTer = 8;
-          else if (penghasilanBruto <= 26000000) tarifTer = 9;
-          else if (penghasilanBruto <= 27700000) tarifTer = 10;
-          else if (penghasilanBruto <= 29350000) tarifTer = 11;
-          else if (penghasilanBruto <= 31450000) tarifTer = 12;
-          else if (penghasilanBruto <= 33950000) tarifTer = 13;
-          else if (penghasilanBruto <= 37100000) tarifTer = 14;
-          else if (penghasilanBruto <= 41100000) tarifTer = 15;
-          else if (penghasilanBruto <= 45800000) tarifTer = 16;
-          else if (penghasilanBruto <= 49500000) tarifTer = 17;
-          else if (penghasilanBruto <= 53800000) tarifTer = 18;
-          else if (penghasilanBruto <= 58500000) tarifTer = 19;
-          else if (penghasilanBruto <= 64000000) tarifTer = 20;
-          else if (penghasilanBruto <= 71000000) tarifTer = 21;
-          else if (penghasilanBruto <= 80000000) tarifTer = 22;
-          else if (penghasilanBruto <= 93000000) tarifTer = 23;
-          else if (penghasilanBruto <= 109000000) tarifTer = 24;
-          else if (penghasilanBruto <= 129000000) tarifTer = 25;
-          else if (penghasilanBruto <= 163000000) tarifTer = 26;
-          else if (penghasilanBruto <= 211000000) tarifTer = 27;
-          else if (penghasilanBruto <= 374000000) tarifTer = 28;
-          else if (penghasilanBruto <= 459000000) tarifTer = 29;
-          else if (penghasilanBruto <= 555000000) tarifTer = 30;
-          else if (penghasilanBruto <= 704000000) tarifTer = 31;
-          else if (penghasilanBruto <= 957000000) tarifTer = 32;
-          else if (penghasilanBruto <= 1405000000) tarifTer = 33;
-          else tarifTer = 34;
-        } else if (kategoriTer === 'C') {
-          if (penghasilanBruto <= 6600000) tarifTer = 0;
-          else if (penghasilanBruto <= 6950000) tarifTer = 0.25;
-          else if (penghasilanBruto <= 7350000) tarifTer = 0.5;
-          else if (penghasilanBruto <= 7800000) tarifTer = 0.75;
-          else if (penghasilanBruto <= 8850000) tarifTer = 1;
-          else if (penghasilanBruto <= 9800000) tarifTer = 1.25;
-          else if (penghasilanBruto <= 10950000) tarifTer = 1.5;
-          else if (penghasilanBruto <= 11200000) tarifTer = 1.75;
-          else if (penghasilanBruto <= 12050000) tarifTer = 2;
-          else if (penghasilanBruto <= 12950000) tarifTer = 3;
-          else if (penghasilanBruto <= 14150000) tarifTer = 4;
-          else if (penghasilanBruto <= 15550000) tarifTer = 5;
-          else if (penghasilanBruto <= 17050000) tarifTer = 6;
-          else if (penghasilanBruto <= 19500000) tarifTer = 7;
-          else if (penghasilanBruto <= 22700000) tarifTer = 8;
-          else if (penghasilanBruto <= 26600000) tarifTer = 9;
-          else if (penghasilanBruto <= 28100000) tarifTer = 10;
-          else if (penghasilanBruto <= 30100000) tarifTer = 11;
-          else if (penghasilanBruto <= 32600000) tarifTer = 12;
-          else if (penghasilanBruto <= 35400000) tarifTer = 13;
-          else if (penghasilanBruto <= 38900000) tarifTer = 14;
-          else if (penghasilanBruto <= 43000000) tarifTer = 15;
-          else if (penghasilanBruto <= 47400000) tarifTer = 16;
-          else if (penghasilanBruto <= 51200000) tarifTer = 17;
-          else if (penghasilanBruto <= 55800000) tarifTer = 18;
-          else if (penghasilanBruto <= 60400000) tarifTer = 19;
-          else if (penghasilanBruto <= 66700000) tarifTer = 20;
-          else if (penghasilanBruto <= 74500000) tarifTer = 21;
-          else if (penghasilanBruto <= 83200000) tarifTer = 22;
-          else if (penghasilanBruto <= 95600000) tarifTer = 23;
-          else if (penghasilanBruto <= 110000000) tarifTer = 24;
-          else if (penghasilanBruto <= 134000000) tarifTer = 25;
-          else if (penghasilanBruto <= 169000000) tarifTer = 26;
-          else if (penghasilanBruto <= 221000000) tarifTer = 27;
-          else if (penghasilanBruto <= 390000000) tarifTer = 28;
-          else if (penghasilanBruto <= 463000000) tarifTer = 29;
-          else if (penghasilanBruto <= 561000000) tarifTer = 30;
-          else if (penghasilanBruto <= 709000000) tarifTer = 31;
-          else if (penghasilanBruto <= 965000000) tarifTer = 32;
-          else if (penghasilanBruto <= 1419000000) tarifTer = 33;
-          else tarifTer = 34;
-        }
-        document.getElementById('tarif-ter-bulanan').value = tarifTer + '%';
+        // Hitung Biaya Jabatan (5% dari penghasilan bruto, maksimal 500,000 per bulan atau 6,000,000 per tahun)
+        const biayaJabatanBulanan = Math.min(penghasilanBruto * 0.05, 500000);
+        const biayaJabatan = Math.min(biayaJabatanBulanan * bulanPeriode, 6000000);
+        document.getElementById('biayaJabatan').value = biayaJabatan.toFixed(0);
 
-        // Hitung PPh Pasal 21 Terutang Bulan Ini
-        const tarifTerDecimal = tarifTer / 100;
-        const pphTerutangBulanan = penghasilanBruto * tarifTerDecimal;
-        document.getElementById('pph-terutang-bulanan').value = pphTerutangBulanan.toFixed(0);
+        // Update Penghasilan Bruto Setahun (disesuaikan dengan periode)
+        const penghasilanBrutoSetahun = penghasilanBruto * (12 / bulanPeriode);
+        document.getElementById('penghasilan-bruto-setahun').value = penghasilanBrutoSetahun.toFixed(0);
+
+        // Update Biaya Jabatan Setahun
+        const biayaJabatanSetahun = biayaJabatan * (12 / bulanPeriode);
+        document.getElementById('biaya-jabatan-setahun').value = biayaJabatanSetahun.toFixed(0);
       }
     </script>
 
