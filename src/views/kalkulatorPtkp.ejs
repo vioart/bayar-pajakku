@@ -194,6 +194,9 @@
     <!-- Main Content -->
     <main class="flex-grow">
       <div class="container mx-auto px-4 sm:px-6 py-6 sm:py-8 pb-24 sm:pb-24 md:pb-2">
+        <h1 class="text-3xl sm:text-4xl font-bold text-center text-[#5a3219] mb-10 animate-slide-in">
+          Kalkulator PPh Pasal 21 (PTKP)
+        </h1>
         <form
           class="bg-white p-4 sm:p-6 rounded-3xl shadow-xl max-w-5xl mx-auto space-y-6 mb-1 sm:mb-24 md:mb-5 animate-slide-in">
           <!-- Informasi Pribadi -->
@@ -404,7 +407,7 @@
                     class="block text-sm font-medium text-gray-700 mb-1">Penghasilan Neto Masa Sebelumnya</label>
                   <input type="text" id="penghasilan-neto-sebelumnya" name="penghasilan-neto-sebelumnya"
                     class="block w-full h-12 px-3 rounded-lg border-2 border-gray-300 shadow-sm focus:border-[#5a3219] focus:ring-2 focus:ring-[#5a3219] text-base"
-                    placeholder="Otomatis dihitung" disabled />
+                    placeholder="" disabled />
                 </div>
                 <div>
                   <label for="penghasilan-neto-setahun" class="block text-sm font-medium text-gray-700 mb-1">Penghasilan
@@ -440,7 +443,7 @@
                       21 Dipotong Masa Sebelumnya</label>
                     <input type="text" id="pph-dipotong-sebelumnya" name="pph-dipotong-sebelumnya" disabled
                       class="block w-full h-12 px-3 rounded-lg border-2 border-gray-300 bg-gray-100 text-gray-500 text-base cursor-not-allowed"
-                      placeholder="Otomatis dihitung" />
+                      placeholder="" />
                   </div>
                   <div>
                     <label for="pph-terutang-setahun" class="block text-sm font-medium text-gray-700 mb-1">PPh Pasal 21
@@ -588,22 +591,24 @@
         const penghasilanNetoSetahun = penghasilanNeto;
         document.getElementById('penghasilan-neto-setahun').value = formatNumber(penghasilanNetoSetahun.toFixed(0));
 
-        // Tentukan Kategori TER
-        let kategoriTer = '';
-        if ((statusKawin === 'TK' && tanggungan === 0) ||
-          (statusKawin === 'TK' && tanggungan === 1) ||
-          (statusKawin === 'K' && tanggungan === 0)) {
-          kategoriTer = 'A';
-        } else if ((statusKawin === 'TK' && tanggungan === 2) ||
-          (statusKawin === 'TK' && tanggungan === 3) ||
-          (statusKawin === 'K' && tanggungan === 1) ||
-          (statusKawin === 'K' && tanggungan === 2)) {
-          kategoriTer = 'B';
-        } else if (statusKawin === 'K' && tanggungan === 3) {
-          kategoriTer = 'C';
-        }
-        document.getElementById('kategori-ter').value = kategoriTer;
+        // Hitung Penghasilan Tidak Kena Pajak (PTKP)
+        const ptkpMap = {
+          'TK_0': 54000000,
+          'TK_1': 58500000,
+          'TK_2': 63000000,
+          'TK_3': 67500000,
+          'K_0': 58500000,
+          'K_1': 63000000,
+          'K_2': 67500000,
+          'K_3': 72000000
+        };
+        const ptkpKey = `${statusKawin}_${tanggungan}`;
+        const penghasilanNonPajak = ptkpMap[ptkpKey] || 54000000;
+        document.getElementById('penghasilan-non-pajak').value = formatNumber(penghasilanNonPajak.toFixed(0));
 
+        // Hitung PKP Setahun (Penghasilan Neto Setahun - Penghasilan Tidak Kena Pajak)
+        const pkpSetahun = Math.max(penghasilanNetoSetahun - penghasilanNonPajak, 0);
+        document.getElementById('pkp-setahun').value = formatNumber(pkpSetahun.toFixed(0));
       }
     </script>
 
