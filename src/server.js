@@ -15,7 +15,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/kalkulator', (req, res) => {
-  res.render('kalkulator')
+  res.render('menuKalkulator')
+})
+
+app.get('/kalkulator/ptkp', (req, res) => {
+  res.render('kalkulatorPtkp')
+})
+
+app.get('/kalkulator/ter', (req, res) => {
+  res.render('kalkulatorTer')
 })
 
 app.get('/info', (req, res) => {
